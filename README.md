@@ -38,13 +38,13 @@ To get your own copy of the project up and running locally or in Google Colab, f
 
 ### Repository Structure
 
-│ README.md
-│ titanic_notebook.ipynb # Main Colab notebook
-│ train.csv # Training data (downloaded from Kaggle)
-│ test.csv # Test data (downloaded from Kaggle)
-└───data # (Optional) data folder for CSV files
-
-markdown
+```
+README.md
+titanic_notebook.ipynb   # Main Colab notebook
+train.csv                # Training data (in the repository root)
+test.csv                 # Test data (in the repository root)
+LICENSE
+```
 
 ## Notebook Walkthrough
 
@@ -83,6 +83,8 @@ In Colab, you can install missing packages with:
 
 ```bash
 !pip install seaborn xgboost
+```
+
 ## How to Run
 
 1. Open the notebook in Google Colab or locally with Jupyter.  
@@ -93,30 +95,33 @@ In Colab, you can install missing packages with:
    - Train/validation split  
    - Model training & evaluation  
    - Hyperparameter tuning  
-   - Submission file generation  
+   - Submission file generation
 
 ## Results & Insights
 
 - **Logistic Regression:** ~80% accuracy, precision ~0.74, recall ~0.77  
 - **Random Forest:** ~82% accuracy after preprocessing  
 - **XGBoost:** ~81% accuracy  
-- **Tuned Random Forest (GridSearchCV):** improved accuracy ~83% on validation set  
+- **Tuned Random Forest (GridSearchCV):** improved accuracy ~83% on validation set
 
 **Key observations:**  
 - Female and first-class passengers had the highest survival rates.  
 - Missing `Age` and `Cabin` values were common; median imputation and dropping `Cabin` worked well.  
-- Title extraction (Mr/Miss/Mrs) added predictive power.  
+- Title extraction (Mr/Miss/Mrs) added predictive power.
 
 ## Submission
 
 1. Download `submission.csv` from the notebook output.  
-2. Upload to the Kaggle Titanic competition under “Submit Predictions.”  
-3. View your public leaderboard score.  
+2. Upload to the [Kaggle Titanic competition](https://www.kaggle.com/competitions/titanic/) under "Submit Predictions".  
+3. View your public leaderboard score.
 
 ## Next Steps
 
 - Tune XGBoost hyperparameters or use `RandomizedSearchCV` for faster search.  
 - Add feature interactions (e.g., family size = `SibSp + Parch + 1`).  
 - Explore ensemble of top models (stacking or voting classifier).  
-- Test alternative imputation strategies (KNNImputer, predictive models).  
+- Test alternative imputation strategies (KNNImputer, predictive models).
 
+## License
+
+This project is released under the MIT License.
