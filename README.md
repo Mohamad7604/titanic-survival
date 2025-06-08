@@ -83,3 +83,40 @@ In Colab, you can install missing packages with:
 
 ```bash
 !pip install seaborn xgboost
+## How to Run
+
+1. Open the notebook in Google Colab or locally with Jupyter.  
+2. Ensure `train.csv` and `test.csv` are uploaded or mounted from your drive.  
+3. Run all cells in order:  
+   - EDA  
+   - Preprocessing  
+   - Train/validation split  
+   - Model training & evaluation  
+   - Hyperparameter tuning  
+   - Submission file generation  
+
+## Results & Insights
+
+- **Logistic Regression:** ~80% accuracy, precision ~0.74, recall ~0.77  
+- **Random Forest:** ~82% accuracy after preprocessing  
+- **XGBoost:** ~81% accuracy  
+- **Tuned Random Forest (GridSearchCV):** improved accuracy ~83% on validation set  
+
+**Key observations:**  
+- Female and first-class passengers had the highest survival rates.  
+- Missing `Age` and `Cabin` values were common; median imputation and dropping `Cabin` worked well.  
+- Title extraction (Mr/Miss/Mrs) added predictive power.  
+
+## Submission
+
+1. Download `submission.csv` from the notebook output.  
+2. Upload to the Kaggle Titanic competition under “Submit Predictions.”  
+3. View your public leaderboard score.  
+
+## Next Steps
+
+- Tune XGBoost hyperparameters or use `RandomizedSearchCV` for faster search.  
+- Add feature interactions (e.g., family size = `SibSp + Parch + 1`).  
+- Explore ensemble of top models (stacking or voting classifier).  
+- Test alternative imputation strategies (KNNImputer, predictive models).  
+
